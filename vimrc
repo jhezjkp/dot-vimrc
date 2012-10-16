@@ -1,3 +1,5 @@
+" 安装/更新:BundleInstall
+" 卸载即将对应项注释后再运行:BundleClean
 source ~/.vim/bundles.vim
 
 " encoding dectection
@@ -11,7 +13,8 @@ syntax enable
 syntax on
 
 " color theme
-color vividchalk
+"color vividchalk
+colorscheme tomorrow-night
 
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
@@ -19,19 +22,18 @@ au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 
 " search operations
+"高亮显示匹配的括号
+set showmatch
+"高亮显示搜索结果
+set hlsearch
+"进行搜索时进行实时匹配
 set incsearch
-"set highlight 	" conflict with highlight current line
+"搜索时忽略大小写
 set ignorecase
+"只有搜索关键字中出现一个大写字母时才区分大小写
 set smartcase
 
 " editor settings
-" When editing a file, always jump to the last cursor position
-autocmd BufReadPost *
-      \ if ! exists("g:leave_my_cursor_position_alone") |
-      \     if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \         exe "normal g'\"" |
-      \     endif |
-      \ endif
 set nocompatible
 set nofoldenable                                                  " disable folding"
 set confirm                                                       " prompt when existing from an unsaved file
@@ -40,7 +42,7 @@ set backspace=indent,eol,start                                    " More powerfu
 
 " display settings
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
-set mouse=a                                                       " use mouse in all modes
+"set mouse=a                                                       " use mouse in all modes
 set report=0                                                      " always report number of lines changed                "
 set nowrap                                                        " dont wrap lines
 set scrolloff=2                                                   " 2 lines above/below cursor when scrolling
@@ -78,27 +80,6 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-" Rainbow parentheses for Lisp and variants
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
 
 " tabbar
 let g:Tb_MaxSize = 2
@@ -142,6 +123,9 @@ if executable('coffeetags')
     \ }
 endif
 
+" NerdCommenter
+let mapleader=','
+
 " Nerd Tree 
 let NERDChristmasTree=0
 let NERDTreeWinSize=30
@@ -166,6 +150,38 @@ let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 set completeopt-=preview
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"imap <expr><TAB> <SID>my_tab_function()
+"imap <expr><CR> <SID>my_cr_function()
+"inoremap <expr><CR> pumvisible() ? neocomplcache#sources#snippets_complete#expandable() ? <Plug>neocomplcache_snippets_expand : "/<CR>" : "/<CR>"
+function! s:my_cr_function()
+    " if there is popup menu
+    if pumvisible()
+        let l:i=neocomplcache#sources#snippets_complete#expandable()
+        " if cursor text is snippets trigger
+        if l:i == 1 || l:i == 3
+            return "\<Plug>(neocomplcache_snippets_expand)" 
+        else
+            return neocomplcache#smart_close_popup()
+        endif
+    else
+        return "\<CR>"
+    endif
+    let l:i=neocomplcache#sources#snippets_complete#expandable()
+endfunction
+function! s:my_tab_function()
+    " if there is popup menu
+    if pumvisible()
+        return "\<C-n>"
+    endif
+    let l:i=neocomplcache#sources#snippets_complete#expandable()
+    " if cursor text is snippets trigger
+    if l:i == 2
+        return "\<Plug>(neocomplcache_snippets_jump)" 
+    else
+        return "\<TAB>"
+    endif
+endfunction
 
 imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_force_expand)
@@ -179,14 +195,26 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 
+"if !exists('g:neocomplcache_omni_patterns')
+  "let g:neocomplcache_omni_patterns = {}
+"endif
+"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplcache_omni_patterns.c = '[^. *\t]\%(\.\|->\)'
+"let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
 " SuperTab
 "let g:SuperTabDefultCompletionType='context'
+"let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
 let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
 let g:SuperTabRetainCompletionType=2
 
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
+" indent-guides
+" 设置对齐线宽度为1
+let g:indent_guides_guide_size=1
 
 " Keybindings for plugin toggle
 nmap <F5> :TagbarToggle<cr>
@@ -210,10 +238,10 @@ nnoremap <c-l> <c-w>l
 :command Qa qa
 :command QA qa
 
-" for macvim
+" for macvim/Gvim
 if has("gui_running")
     set go=aAce  " remove toolbar
-    "set transparency=30
+    set transparency=30
     set guifont=Monaco:h13
     set showtabline=2
     set columns=140
