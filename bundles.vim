@@ -75,7 +75,7 @@ Bundle 'klen/python-mode'
 Bundle 'vim-ruby/vim-ruby'
 "rail-vim插件(rails相关的快速方切切换插件): :find XX
 Bundle 'tpope/vim-rails'
-Bundle 'beyondwords/vim-jinja2'
+" Bundle 'beyondwords/vim-jinja2'
 Bundle 'digitaltoad/vim-jade'
 
 " web front end
