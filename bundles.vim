@@ -105,7 +105,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'rickharris/vim-monokai'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-distinguished'
-Bundle 'ootoovak/vim-tomorrow-night'
+Bundle 'chriskempson/tomorrow-theme'
 
 " 启用文件类型个油瓶为特定文件类型载入缩进文件
 filetype plugin indent on     " required!
