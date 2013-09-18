@@ -17,7 +17,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'garbas/vim-snipmate'
 Bundle 'ervandew/supertab'
 "snippets库，相关snippets在~/.vim/bundle/snipmate-snippets/snippets/目录下
-Bundle 'honza/snipmate-snippets'
+Bundle 'honza/vim-snippets'
 Bundle 'mattn/zencoding-vim'
 " snipmate dependencies
 Bundle 'MarcWeber/vim-addon-mw-utils'
