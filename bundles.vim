@@ -16,7 +16,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'ervandew/supertab'
 "snippets库，相关snippets在~/.vim/bundle/snipmate-snippets/snippets/目录下
 Bundle 'honza/vim-snippets'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 " snipmate dependencies
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
