@@ -12,7 +12,8 @@ Bundle 'gmarik/vundle'
 " Code Completions
 "------------------
 "自动补全插件
-Bundle 'Shougo/neocomplcache'
+"Bundle 'Shougo/neocomplcache'
+Bundle 'Valloric/YouCompleteMe'
 "snip插件
 Bundle 'garbas/vim-snipmate'
 Bundle 'ervandew/supertab'
