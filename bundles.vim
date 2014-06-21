@@ -18,8 +18,8 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'garbas/vim-snipmate'
 Bundle 'ervandew/supertab'
 "snippets库，相关snippets在~/.vim/bundle/snipmate-snippets/snippets/目录下
-Bundle 'honza/snipmate-snippets'
-Bundle 'mattn/zencoding-vim'
+Bundle 'honza/vim-snippets'
+Bundle 'mattn/emmet-vim'
 " snipmate dependencies
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -76,7 +76,7 @@ Bundle 'klen/python-mode'
 Bundle 'vim-ruby/vim-ruby'
 "rail-vim插件(rails相关的快速方切切换插件): :find XX
 Bundle 'tpope/vim-rails'
-Bundle 'beyondwords/vim-jinja2'
+" Bundle 'beyondwords/vim-jinja2'
 Bundle 'digitaltoad/vim-jade'
 
 " web front end
@@ -106,7 +106,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'rickharris/vim-monokai'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-distinguished'
-Bundle 'ootoovak/vim-tomorrow-night'
+Bundle 'chriskempson/vim-tomorrow-theme'
 
 " 启用文件类型个油瓶为特定文件类型载入缩进文件
 filetype plugin indent on     " required!

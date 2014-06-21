@@ -3,7 +3,12 @@
 source ~/.vim/bundles.vim
 
 " encoding dectection
+set encoding=utf-8 
+set termencoding=utf-8 
+set fileencoding=utf-8
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set enc=utf-8
+set fencs=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
 " enable filetype dectection and ft specific plugin/indent
 filetype plugin indent on
@@ -14,7 +19,7 @@ syntax on
 
 " color theme
 "color vividchalk
-colorscheme tomorrow-night
+colorscheme Tomorrow-Night
 
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
