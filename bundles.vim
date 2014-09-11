@@ -6,106 +6,95 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 "------------------
 " Code Completions
 "------------------
 "自动补全插件
-Bundle 'Shougo/neocomplcache'
+"Plugin 'Shougo/neocomplete.vim'
+Plugin 'Valloric/YouCompleteMe'
 "snip插件
-Bundle 'garbas/vim-snipmate'
-Bundle 'ervandew/supertab'
+Plugin 'garbas/vim-snipmate'
+Plugin 'ervandew/supertab'
 "snippets库，相关snippets在~/.vim/bundle/snipmate-snippets/snippets/目录下
-Bundle 'honza/snipmate-snippets'
-Bundle 'mattn/zencoding-vim'
+Plugin 'honza/vim-snippets'
+" Zen coding support
+Plugin 'mattn/emmet-vim'
 " snipmate dependencies
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 
 "-----------------
 " Fast navigation
 "-----------------
-Bundle 'tsaleh/vim-matchit'
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'Lokaltog/vim-easymotion'
 "记录上次编辑位置的插件
-Bundle 'lastpos.vim'
+Plugin 'lastpos.vim'
 
 "--------------
 " Fast editing
 "--------------
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 "注释插件：,cc ,cm
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'sjl/gundo.vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'godlygeek/tabular'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'sjl/gundo.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'godlygeek/tabular'
 "对齐线插件
-Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 "--------------
 " IDE features
 "--------------
 ""文件系统视图插件
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 "显示文件结构大纲的插件
-Bundle 'majutsushi/tagbar'
-Bundle 'humiaozuzu/TabBar'
+Plugin 'majutsushi/tagbar'
+Plugin 'humiaozuzu/TabBar'
 "ack插件(类引用查找，类似grep): :Ack XXX 然后用:cn和:cp进行向前向后查找
-Bundle 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 "ctrlp插件(文件切换): Ctrl+p激活
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 "git插件
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'scrooloose/syntastic'
 
 "-------------
 " Other Utils
 " ------------
 " 该插件与nerdcommenter插件有冲突
-"Bundle 'humiaozuzu/fcitx-status'
-Bundle 'nvie/vim-togglemouse'
+"Plugin 'humiaozuzu/fcitx-status'
+Plugin 'nvie/vim-togglemouse'
 
 "----------------------------------------
 " Syntax/Indent for language enhancement
 "----------------------------------------
 " web backend
-Bundle 'klen/python-mode'
-Bundle 'vim-ruby/vim-ruby'
-"rail-vim插件(rails相关的快速方切切换插件): :find XX
-Bundle 'tpope/vim-rails'
-" Bundle 'beyondwords/vim-jinja2'
-Bundle 'digitaltoad/vim-jade'
-
-" web front end
-Bundle 'othree/html5.vim'
-Bundle 'tpope/vim-haml'
-Bundle 'nono/jquery.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'groenewege/vim-less'
-Bundle 'wavded/vim-stylus'
+Plugin 'klen/python-mode'
+Plugin 'digitaltoad/vim-jade'
 
 " markup language
-Bundle 'tpope/vim-markdown'
+Plugin 'tpope/vim-markdown'
 
-" Ruby
-"Bundle 'tpope/vim-endwise'
+"GO
+Plugin 'fatih/vim-go'
 
 " Scheme
-"Bundle 'kien/rainbow_parentheses.vim'
-"Bundle 'wlangstroth/vim-racket'
+"Plugin 'kien/rainbow_parentheses.vim'
+"Plugin 'wlangstroth/vim-racket'
 
 "--------------
 " Color Scheme
 "--------------
-Bundle 'rickharris/vim-blackboard'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'rickharris/vim-monokai'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'chriskempson/vim-tomorrow-theme'
+Plugin 'rickharris/vim-blackboard'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'rickharris/vim-monokai'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'chriskempson/vim-tomorrow-theme'
 
 " 启用文件类型个油瓶为特定文件类型载入缩进文件
 filetype plugin indent on     " required!
